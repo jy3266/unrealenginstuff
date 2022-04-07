@@ -1,0 +1,1257 @@
+{
+  "main": [
+    {
+      "country": "Lesotho",
+      "rate2019both": "72.4000",
+      "rate2019male": 116,
+      "rate2019female": "30.1000",
+      "pop2021": "2159.0790"
+    },
+    {
+      "country": "Guyana",
+      "rate2019both": "40.3000",
+      "rate2019male": 63,
+      "rate2019female": "17.4000",
+      "pop2021": "790.3260"
+    },
+    {
+      "country": "Eswatini",
+      "rate2019both": "29.4000",
+      "rate2019male": "55.1000",
+      "rate2019female": "4.7000",
+      "pop2021": "1172.3620"
+    },
+    {
+      "country": "South Korea",
+      "rate2019both": "28.6000",
+      "rate2019male": "40.2000",
+      "rate2019female": "16.9000",
+      "pop2021": "51305.1860"
+    },
+    {
+      "country": "Kiribati",
+      "rate2019both": "28.3000",
+      "rate2019male": "48.6000",
+      "rate2019female": "8.7000",
+      "pop2021": "121.3920"
+    },
+    {
+      "country": "Micronesia",
+      "rate2019both": "28.2000",
+      "rate2019male": "43.2000",
+      "rate2019female": "12.7000",
+      "pop2021": "116.2540"
+    },
+    {
+      "country": "Lithuania",
+      "rate2019both": "26.1000",
+      "rate2019male": "45.4000",
+      "rate2019female": "9.6000",
+      "pop2021": "2689.8620"
+    },
+    {
+      "country": "Suriname",
+      "rate2019both": "25.4000",
+      "rate2019male": "38.8000",
+      "rate2019female": "11.8000",
+      "pop2021": "591.8000"
+    },
+    {
+      "country": "Russia",
+      "rate2019both": "25.1000",
+      "rate2019male": "43.6000",
+      "rate2019female": "9.1000",
+      "pop2021": "145912.0250"
+    },
+    {
+      "country": "South Africa",
+      "rate2019both": "23.5000",
+      "rate2019male": "37.6000",
+      "rate2019female": "9.8000",
+      "pop2021": "60041.9940"
+    },
+    {
+      "country": "Ukraine",
+      "rate2019both": "21.6000",
+      "rate2019male": "39.2000",
+      "rate2019female": "6.5000",
+      "pop2021": "43466.8190"
+    },
+    {
+      "country": "Uruguay",
+      "rate2019both": "21.2000",
+      "rate2019male": "34.5000",
+      "rate2019female": "8.9000",
+      "pop2021": "3485.1510"
+    },
+    {
+      "country": "Belarus",
+      "rate2019both": "21.2000",
+      "rate2019male": "36.7000",
+      "rate2019female": "7.7000",
+      "pop2021": "9442.8620"
+    },
+    {
+      "country": "Montenegro",
+      "rate2019both": 21,
+      "rate2019male": "31.7000",
+      "rate2019female": "10.4000",
+      "pop2021": "628.0530"
+    },
+    {
+      "country": "Latvia",
+      "rate2019both": "20.1000",
+      "rate2019male": "35.5000",
+      "rate2019female": 7,
+      "pop2021": "1866.9420"
+    },
+    {
+      "country": "Slovenia",
+      "rate2019both": "19.8000",
+      "rate2019male": "31.4000",
+      "rate2019female": "8.3000",
+      "pop2021": "2078.7240"
+    },
+    {
+      "country": "Belgium",
+      "rate2019both": "18.3000",
+      "rate2019male": "24.9000",
+      "rate2019female": "11.8000",
+      "pop2021": "11632.3260"
+    },
+    {
+      "country": "Vanuatu",
+      "rate2019both": 18,
+      "rate2019male": "28.1000",
+      "rate2019female": "7.6000",
+      "pop2021": "314.4640"
+    },
+    {
+      "country": "Mongolia",
+      "rate2019both": "17.9000",
+      "rate2019male": "30.7000",
+      "rate2019female": "5.4000",
+      "pop2021": "3329.2890"
+    },
+    {
+      "country": "Kazakhstan",
+      "rate2019both": "17.6000",
+      "rate2019male": 29,
+      "rate2019female": "6.8000",
+      "pop2021": "18994.9620"
+    },
+    {
+      "country": "Hungary",
+      "rate2019both": "16.6000",
+      "rate2019male": "25.9000",
+      "rate2019female": "8.3000",
+      "pop2021": "9634.1640"
+    },
+    {
+      "country": "Croatia",
+      "rate2019both": "16.4000",
+      "rate2019male": "25.3000",
+      "rate2019female": "8.1000",
+      "pop2021": "4081.6510"
+    },
+    {
+      "country": "Botswana",
+      "rate2019both": "16.1000",
+      "rate2019male": "26.3000",
+      "rate2019female": "6.4000",
+      "pop2021": "2397.2410"
+    },
+    {
+      "country": "United States",
+      "rate2019both": "16.1000",
+      "rate2019male": 25,
+      "rate2019female": "7.5000",
+      "pop2021": "332915.0730"
+    },
+    {
+      "country": "Finland",
+      "rate2019both": "15.3000",
+      "rate2019male": "23.2000",
+      "rate2019female": "7.6000",
+      "pop2021": "5548.3600"
+    },
+    {
+      "country": "Japan",
+      "rate2019both": "15.3000",
+      "rate2019male": "21.8000",
+      "rate2019female": "9.2000",
+      "pop2021": "126050.8040"
+    },
+    {
+      "country": "Estonia",
+      "rate2019both": "14.9000",
+      "rate2019male": "24.3000",
+      "rate2019female": "6.5000",
+      "pop2021": "1325.1850"
+    },
+    {
+      "country": "Solomon Islands",
+      "rate2019both": "14.7000",
+      "rate2019male": 27,
+      "rate2019female": "1.9000",
+      "pop2021": "703.9960"
+    },
+    {
+      "country": "Moldova",
+      "rate2019both": "14.7000",
+      "rate2019male": "26.1000",
+      "rate2019female": "4.1000",
+      "pop2021": "4024.0190"
+    },
+    {
+      "country": "Sweden",
+      "rate2019both": "14.7000",
+      "rate2019male": "19.9000",
+      "rate2019female": "9.5000",
+      "pop2021": "10160.1690"
+    },
+    {
+      "country": "Austria",
+      "rate2019both": "14.6000",
+      "rate2019male": "22.8000",
+      "rate2019female": "6.7000",
+      "pop2021": "9043.0700"
+    },
+    {
+      "country": "Switzerland",
+      "rate2019both": "14.5000",
+      "rate2019male": "20.2000",
+      "rate2019female": 9,
+      "pop2021": "8715.4940"
+    },
+    {
+      "country": "Cuba",
+      "rate2019both": "14.5000",
+      "rate2019male": 23,
+      "rate2019female": 6,
+      "pop2021": "11317.5050"
+    },
+    {
+      "country": "Zimbabwe",
+      "rate2019both": "14.1000",
+      "rate2019male": 20,
+      "rate2019female": "8.8000",
+      "pop2021": "15092.1710"
+    },
+    {
+      "country": "Sri Lanka",
+      "rate2019both": 14,
+      "rate2019male": "22.3000",
+      "rate2019female": "6.2000",
+      "pop2021": "21497.3100"
+    },
+    {
+      "country": "France",
+      "rate2019both": "13.8000",
+      "rate2019male": "20.4000",
+      "rate2019female": "7.6000",
+      "pop2021": "65426.1790"
+    },
+    {
+      "country": "Mozambique",
+      "rate2019both": "13.6000",
+      "rate2019male": 22,
+      "rate2019female": "5.7000",
+      "pop2021": "32163.0470"
+    },
+    {
+      "country": "India",
+      "rate2019both": "12.7000",
+      "rate2019male": "14.1000",
+      "rate2019female": "11.1000",
+      "pop2021": "1393409.0380"
+    },
+    {
+      "country": "Samoa",
+      "rate2019both": "12.6000",
+      "rate2019male": 18,
+      "rate2019female": "6.7000",
+      "pop2021": "200.1490"
+    },
+    {
+      "country": "Australia",
+      "rate2019both": "12.5000",
+      "rate2019male": "18.6000",
+      "rate2019female": "6.4000",
+      "pop2021": "25788.2150"
+    },
+    {
+      "country": "Central African Republic",
+      "rate2019both": "12.3000",
+      "rate2019male": "19.6000",
+      "rate2019female": "5.2000",
+      "pop2021": "4919.9810"
+    },
+    {
+      "country": "Germany",
+      "rate2019both": "12.3000",
+      "rate2019male": "18.6000",
+      "rate2019female": "6.2000",
+      "pop2021": "83900.4730"
+    },
+    {
+      "country": "Slovakia",
+      "rate2019both": "12.1000",
+      "rate2019male": "21.2000",
+      "rate2019female": "3.4000",
+      "pop2021": "5460.7210"
+    },
+    {
+      "country": "Iceland",
+      "rate2019both": "11.9000",
+      "rate2019male": "19.8000",
+      "rate2019female": "3.9000",
+      "pop2021": "343.3530"
+    },
+    {
+      "country": "Norway",
+      "rate2019both": "11.8000",
+      "rate2019male": "15.8000",
+      "rate2019female": "7.7000",
+      "pop2021": "5465.6300"
+    },
+    {
+      "country": "Netherlands",
+      "rate2019both": "11.8000",
+      "rate2019male": "15.5000",
+      "rate2019female": "8.3000",
+      "pop2021": "17173.0990"
+    },
+    {
+      "country": "Canada",
+      "rate2019both": "11.8000",
+      "rate2019male": "17.6000",
+      "rate2019female": "6.1000",
+      "pop2021": "38067.9030"
+    },
+    {
+      "country": "Portugal",
+      "rate2019both": "11.5000",
+      "rate2019male": "17.9000",
+      "rate2019female": "5.7000",
+      "pop2021": "10167.9250"
+    },
+    {
+      "country": "Serbia",
+      "rate2019both": "11.4000",
+      "rate2019male": "16.6000",
+      "rate2019female": "6.3000",
+      "pop2021": "8697.5500"
+    },
+    {
+      "country": "Luxembourg",
+      "rate2019both": "11.3000",
+      "rate2019male": "15.3000",
+      "rate2019female": "7.1000",
+      "pop2021": "634.8140"
+    },
+    {
+      "country": "Poland",
+      "rate2019both": "11.3000",
+      "rate2019male": "20.1000",
+      "rate2019female": "3.1000",
+      "pop2021": "37797.0050"
+    },
+    {
+      "country": "Singapore",
+      "rate2019both": "11.2000",
+      "rate2019male": 15,
+      "rate2019female": "7.1000",
+      "pop2021": "5896.6860"
+    },
+    {
+      "country": "New Zealand",
+      "rate2019both": 11,
+      "rate2019male": "16.5000",
+      "rate2019female": "5.8000",
+      "pop2021": "4860.6430"
+    },
+    {
+      "country": "Bosnia and Herzegovina",
+      "rate2019both": "10.9000",
+      "rate2019male": "17.6000",
+      "rate2019female": "4.5000",
+      "pop2021": "3263.4660"
+    },
+    {
+      "country": "Eritrea",
+      "rate2019both": "10.9000",
+      "rate2019male": "16.6000",
+      "rate2019female": "5.2000",
+      "pop2021": "3601.4670"
+    },
+    {
+      "country": "Denmark",
+      "rate2019both": "10.7000",
+      "rate2019male": "14.9000",
+      "rate2019female": "6.5000",
+      "pop2021": "5813.2980"
+    },
+    {
+      "country": "Namibia",
+      "rate2019both": "9.7000",
+      "rate2019male": "16.7000",
+      "rate2019female": "3.2000",
+      "pop2021": "2587.3440"
+    },
+    {
+      "country": "Bulgaria",
+      "rate2019both": "9.7000",
+      "rate2019male": "15.3000",
+      "rate2019female": "4.4000",
+      "pop2021": "6896.6630"
+    },
+    {
+      "country": "Romania",
+      "rate2019both": "9.7000",
+      "rate2019male": "16.5000",
+      "rate2019female": "3.3000",
+      "pop2021": "19127.7740"
+    },
+    {
+      "country": "Djibouti",
+      "rate2019both": "9.6000",
+      "rate2019male": "12.6000",
+      "rate2019female": "6.4000",
+      "pop2021": "1002.1870"
+    },
+    {
+      "country": "Ireland",
+      "rate2019both": "9.6000",
+      "rate2019male": "15.4000",
+      "rate2019female": "3.9000",
+      "pop2021": "4982.9070"
+    },
+    {
+      "country": "Haiti",
+      "rate2019both": "9.6000",
+      "rate2019male": "11.8000",
+      "rate2019female": "7.6000",
+      "pop2021": "11541.6850"
+    },
+    {
+      "country": "Mauritius",
+      "rate2019both": "9.5000",
+      "rate2019male": "16.3000",
+      "rate2019female": "2.8000",
+      "pop2021": "1273.4330"
+    },
+    {
+      "country": "North Macedonia",
+      "rate2019both": "9.4000",
+      "rate2019male": "13.9000",
+      "rate2019female": "4.8000",
+      "pop2021": "2082.6580"
+    },
+    {
+      "country": "North Korea",
+      "rate2019both": "9.4000",
+      "rate2019male": "11.2000",
+      "rate2019female": "7.6000",
+      "pop2021": "25887.0410"
+    },
+    {
+      "country": "Georgia",
+      "rate2019both": "9.2000",
+      "rate2019male": 16,
+      "rate2019female": 3,
+      "pop2021": "3979.7650"
+    },
+    {
+      "country": "Fiji",
+      "rate2019both": 9,
+      "rate2019male": "12.2000",
+      "rate2019female": "5.7000",
+      "pop2021": "902.9060"
+    },
+    {
+      "country": "Chile",
+      "rate2019both": 9,
+      "rate2019male": "14.9000",
+      "rate2019female": "3.2000",
+      "pop2021": "19212.3610"
+    },
+    {
+      "country": "Cameroon",
+      "rate2019both": 9,
+      "rate2019male": "13.6000",
+      "rate2019female": "4.4000",
+      "pop2021": "27224.2650"
+    },
+    {
+      "country": "Nepal",
+      "rate2019both": 9,
+      "rate2019male": "16.4000",
+      "rate2019female": "2.7000",
+      "pop2021": "29674.9200"
+    },
+    {
+      "country": "Bahrain",
+      "rate2019both": "8.9000",
+      "rate2019male": "12.5000",
+      "rate2019female": "2.4000",
+      "pop2021": "1748.2960"
+    },
+    {
+      "country": "Ivory Coast",
+      "rate2019both": "8.9000",
+      "rate2019male": "14.9000",
+      "rate2019female": "2.8000",
+      "pop2021": "27053.6290"
+    },
+    {
+      "country": "Pakistan",
+      "rate2019both": "8.9000",
+      "rate2019male": "13.3000",
+      "rate2019female": "4.3000",
+      "pop2021": "225199.9370"
+    },
+    {
+      "country": "Togo",
+      "rate2019both": "8.8000",
+      "rate2019male": "13.8000",
+      "rate2019female": "3.9000",
+      "pop2021": "8478.2500"
+    },
+    {
+      "country": "Thailand",
+      "rate2019both": "8.8000",
+      "rate2019male": 15,
+      "rate2019female": "2.9000",
+      "pop2021": "69950.8500"
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "rate2019both": "8.7000",
+      "rate2019male": "13.9000",
+      "rate2019female": "3.6000",
+      "pop2021": "1403.3750"
+    },
+    {
+      "country": "Gabon",
+      "rate2019both": "8.4000",
+      "rate2019male": "14.2000",
+      "rate2019female": "2.4000",
+      "pop2021": "2278.8250"
+    },
+    {
+      "country": "Argentina",
+      "rate2019both": "8.4000",
+      "rate2019male": "13.7000",
+      "rate2019female": "3.3000",
+      "pop2021": "45605.8260"
+    },
+    {
+      "country": "Seychelles",
+      "rate2019both": "8.1000",
+      "rate2019male": "14.4000",
+      "rate2019female": "1.4000",
+      "pop2021": "98.9080"
+    },
+    {
+      "country": "Costa Rica",
+      "rate2019both": "8.1000",
+      "rate2019male": "14.1000",
+      "rate2019female": 2,
+      "pop2021": "5139.0520"
+    },
+    {
+      "country": "China",
+      "rate2019both": "8.1000",
+      "rate2019male": "9.8000",
+      "rate2019female": "6.2000",
+      "pop2021": "1444216.1070"
+    },
+    {
+      "country": "Uzbekistan",
+      "rate2019both": 8,
+      "rate2019male": "11.3000",
+      "rate2019female": "4.8000",
+      "pop2021": "33935.7630"
+    },
+    {
+      "country": "Saint Lucia",
+      "rate2019both": "7.9000",
+      "rate2019male": "14.3000",
+      "rate2019female": "1.7000",
+      "pop2021": "184.4000"
+    },
+    {
+      "country": "Equatorial Guinea",
+      "rate2019both": "7.9000",
+      "rate2019male": "9.4000",
+      "rate2019female": 6,
+      "pop2021": "1449.8960"
+    },
+    {
+      "country": "Somalia",
+      "rate2019both": "7.9000",
+      "rate2019male": 12,
+      "rate2019female": "3.8000",
+      "pop2021": "16359.5040"
+    },
+    {
+      "country": "United Kingdom",
+      "rate2019both": "7.9000",
+      "rate2019male": "11.8000",
+      "rate2019female": 4,
+      "pop2021": "68207.1160"
+    },
+    {
+      "country": "Benin",
+      "rate2019both": "7.8000",
+      "rate2019male": "11.8000",
+      "rate2019female": "3.8000",
+      "pop2021": "12451.0400"
+    },
+    {
+      "country": "Spain",
+      "rate2019both": "7.7000",
+      "rate2019male": "11.4000",
+      "rate2019female": "4.2000",
+      "pop2021": "46745.2160"
+    },
+    {
+      "country": "Ecuador",
+      "rate2019both": "7.6000",
+      "rate2019male": "11.6000",
+      "rate2019female": "3.6000",
+      "pop2021": "17888.4750"
+    },
+    {
+      "country": "Burkina Faso",
+      "rate2019both": "7.5000",
+      "rate2019male": "11.3000",
+      "rate2019female": "3.7000",
+      "pop2021": "21497.0960"
+    },
+    {
+      "country": "Vietnam",
+      "rate2019both": "7.5000",
+      "rate2019male": "10.4000",
+      "rate2019female": "4.7000",
+      "pop2021": "98168.8330"
+    },
+    {
+      "country": "Kyrgyzstan",
+      "rate2019both": "7.4000",
+      "rate2019male": "11.7000",
+      "rate2019female": "3.2000",
+      "pop2021": "6628.3560"
+    },
+    {
+      "country": "Zambia",
+      "rate2019both": "7.3000",
+      "rate2019male": 12,
+      "rate2019female": "2.7000",
+      "pop2021": "18920.6510"
+    },
+    {
+      "country": "Morocco",
+      "rate2019both": "7.2000",
+      "rate2019male": "9.7000",
+      "rate2019female": "4.7000",
+      "pop2021": "37344.7950"
+    },
+    {
+      "country": "Belize",
+      "rate2019both": "7.1000",
+      "rate2019male": "12.5000",
+      "rate2019female": "1.7000",
+      "pop2021": "404.9140"
+    },
+    {
+      "country": "Guinea-Bissau",
+      "rate2019both": 7,
+      "rate2019male": "10.2000",
+      "rate2019female": "3.9000",
+      "pop2021": "2015.4940"
+    },
+    {
+      "country": "Guinea",
+      "rate2019both": 7,
+      "rate2019male": "9.2000",
+      "rate2019female": "4.9000",
+      "pop2021": "13497.2440"
+    },
+    {
+      "country": "Brazil",
+      "rate2019both": "6.9000",
+      "rate2019male": "10.9000",
+      "rate2019female": 3,
+      "pop2021": "213993.4370"
+    },
+    {
+      "country": "Sierra Leone",
+      "rate2019both": "6.7000",
+      "rate2019male": "8.3000",
+      "rate2019female": "5.1000",
+      "pop2021": "8141.3430"
+    },
+    {
+      "country": "Italy",
+      "rate2019both": "6.7000",
+      "rate2019male": "10.1000",
+      "rate2019female": "3.5000",
+      "pop2021": "60367.4770"
+    },
+    {
+      "country": "DR Congo",
+      "rate2019both": "6.7000",
+      "rate2019male": "10.6000",
+      "rate2019female": "2.8000",
+      "pop2021": "92377.9930"
+    },
+    {
+      "country": "Ghana",
+      "rate2019both": "6.6000",
+      "rate2019male": "11.8000",
+      "rate2019female": "1.2000",
+      "pop2021": "31732.1290"
+    },
+    {
+      "country": "United Arab Emirates",
+      "rate2019both": "6.4000",
+      "rate2019male": 8,
+      "rate2019female": 3,
+      "pop2021": "9991.0890"
+    },
+    {
+      "country": "Chad",
+      "rate2019both": "6.4000",
+      "rate2019male": "9.6000",
+      "rate2019female": "3.3000",
+      "pop2021": "16914.9850"
+    },
+    {
+      "country": "Bolivia",
+      "rate2019both": "6.2000",
+      "rate2019male": "8.4000",
+      "rate2019female": "4.1000",
+      "pop2021": "11832.9400"
+    },
+    {
+      "country": "Burundi",
+      "rate2019both": "6.2000",
+      "rate2019male": "9.2000",
+      "rate2019female": "3.4000",
+      "pop2021": "12255.4330"
+    },
+    {
+      "country": "Malta",
+      "rate2019both": "6.1000",
+      "rate2019male": "9.8000",
+      "rate2019female": "2.3000",
+      "pop2021": "442.7840"
+    },
+    {
+      "country": "El Salvador",
+      "rate2019both": "6.1000",
+      "rate2019male": "10.5000",
+      "rate2019female": "2.1000",
+      "pop2021": "6518.4990"
+    },
+    {
+      "country": "Angola",
+      "rate2019both": "6.1000",
+      "rate2019male": 10,
+      "rate2019female": "2.3000",
+      "pop2021": "33933.6100"
+    },
+    {
+      "country": "Kenya",
+      "rate2019both": "6.1000",
+      "rate2019male": "9.1000",
+      "rate2019female": "3.2000",
+      "pop2021": "54985.6980"
+    },
+    {
+      "country": "Paraguay",
+      "rate2019both": 6,
+      "rate2019male": "8.7000",
+      "rate2019female": "3.2000",
+      "pop2021": "7219.6380"
+    },
+    {
+      "country": "Senegal",
+      "rate2019both": 6,
+      "rate2019male": "9.2000",
+      "rate2019female": 3,
+      "pop2021": "17196.3010"
+    },
+    {
+      "country": "Saudi Arabia",
+      "rate2019both": 6,
+      "rate2019male": "8.9000",
+      "rate2019female": 2,
+      "pop2021": "35340.6830"
+    },
+    {
+      "country": "Guatemala",
+      "rate2019both": "5.9000",
+      "rate2019male": "9.3000",
+      "rate2019female": "2.6000",
+      "pop2021": "18249.8600"
+    },
+    {
+      "country": "Qatar",
+      "rate2019both": "5.8000",
+      "rate2019male": "7.2000",
+      "rate2019female": "1.7000",
+      "pop2021": "2930.5280"
+    },
+    {
+      "country": "Yemen",
+      "rate2019both": "5.8000",
+      "rate2019male": 7,
+      "rate2019female": "4.6000",
+      "pop2021": "30490.6400"
+    },
+    {
+      "country": "Turkmenistan",
+      "rate2019both": "5.7000",
+      "rate2019male": "8.8000",
+      "rate2019female": "2.7000",
+      "pop2021": "6117.9240"
+    },
+    {
+      "country": "Malaysia",
+      "rate2019both": "5.7000",
+      "rate2019male": "8.9000",
+      "rate2019female": "2.3000",
+      "pop2021": "32776.1940"
+    },
+    {
+      "country": "Rwanda",
+      "rate2019both": "5.6000",
+      "rate2019male": "8.2000",
+      "rate2019female": 3,
+      "pop2021": "13276.5130"
+    },
+    {
+      "country": "Madagascar",
+      "rate2019both": "5.5000",
+      "rate2019male": "7.6000",
+      "rate2019female": "3.4000",
+      "pop2021": "28427.3280"
+    },
+    {
+      "country": "Comoros",
+      "rate2019both": "5.4000",
+      "rate2019male": 7,
+      "rate2019female": "3.8000",
+      "pop2021": "888.4510"
+    },
+    {
+      "country": "Laos",
+      "rate2019both": "5.4000",
+      "rate2019male": "7.6000",
+      "rate2019female": "3.2000",
+      "pop2021": "7379.3580"
+    },
+    {
+      "country": "Malawi",
+      "rate2019both": "5.4000",
+      "rate2019male": "9.2000",
+      "rate2019female": "1.7000",
+      "pop2021": "19647.6840"
+    },
+    {
+      "country": "Ethiopia",
+      "rate2019both": "5.4000",
+      "rate2019male": "7.7000",
+      "rate2019female": "3.1000",
+      "pop2021": "117876.2270"
+    },
+    {
+      "country": "Israel",
+      "rate2019both": "5.3000",
+      "rate2019male": "8.4000",
+      "rate2019female": "2.3000",
+      "pop2021": "8789.7740"
+    },
+    {
+      "country": "Niger",
+      "rate2019both": "5.3000",
+      "rate2019male": "7.2000",
+      "rate2019female": "3.3000",
+      "pop2021": "25130.8170"
+    },
+    {
+      "country": "Mexico",
+      "rate2019both": "5.3000",
+      "rate2019male": "8.5000",
+      "rate2019female": "2.2000",
+      "pop2021": "130262.2160"
+    },
+    {
+      "country": "Iran",
+      "rate2019both": "5.2000",
+      "rate2019male": "7.7000",
+      "rate2019female": "2.8000",
+      "pop2021": "85028.7590"
+    },
+    {
+      "country": "Greece",
+      "rate2019both": "5.1000",
+      "rate2019male": "8.4000",
+      "rate2019female": "1.9000",
+      "pop2021": "10370.7440"
+    },
+    {
+      "country": "Oman",
+      "rate2019both": "4.9000",
+      "rate2019male": "6.8000",
+      "rate2019female": 1,
+      "pop2021": "5223.3750"
+    },
+    {
+      "country": "Dominican Republic",
+      "rate2019both": "4.9000",
+      "rate2019male": 8,
+      "rate2019female": "1.8000",
+      "pop2021": "10953.7030"
+    },
+    {
+      "country": "Cambodia",
+      "rate2019both": "4.9000",
+      "rate2019male": 7,
+      "rate2019female": "2.8000",
+      "pop2021": "16946.4380"
+    },
+    {
+      "country": "Gambia",
+      "rate2019both": "4.8000",
+      "rate2019male": "6.6000",
+      "rate2019female": 3,
+      "pop2021": "2486.9450"
+    },
+    {
+      "country": "Bhutan",
+      "rate2019both": "4.6000",
+      "rate2019male": "6.3000",
+      "rate2019female": "2.7000",
+      "pop2021": "779.8980"
+    },
+    {
+      "country": "Uganda",
+      "rate2019both": "4.6000",
+      "rate2019male": "7.6000",
+      "rate2019female": "1.7000",
+      "pop2021": "47123.5310"
+    },
+    {
+      "country": "Liberia",
+      "rate2019both": "4.5000",
+      "rate2019male": "5.6000",
+      "rate2019female": "3.3000",
+      "pop2021": "5180.2030"
+    },
+    {
+      "country": "Libya",
+      "rate2019both": "4.5000",
+      "rate2019male": 6,
+      "rate2019female": "2.9000",
+      "pop2021": "6958.5320"
+    },
+    {
+      "country": "Nicaragua",
+      "rate2019both": "4.4000",
+      "rate2019male": "6.9000",
+      "rate2019female": "1.9000",
+      "pop2021": "6702.3850"
+    },
+    {
+      "country": "Albania",
+      "rate2019both": "4.3000",
+      "rate2019male": "5.9000",
+      "rate2019female": "2.7000",
+      "pop2021": "2872.9330"
+    },
+    {
+      "country": "Tajikistan",
+      "rate2019both": "4.3000",
+      "rate2019male": "5.7000",
+      "rate2019female": "2.8000",
+      "pop2021": "9749.6270"
+    },
+    {
+      "country": "Tanzania",
+      "rate2019both": "4.3000",
+      "rate2019male": "6.6000",
+      "rate2019female": 2,
+      "pop2021": "61498.4370"
+    },
+    {
+      "country": "Azerbaijan",
+      "rate2019both": "4.1000",
+      "rate2019male": "6.6000",
+      "rate2019female": "1.6000",
+      "pop2021": "10223.3420"
+    },
+    {
+      "country": "Mali",
+      "rate2019both": "4.1000",
+      "rate2019male": "5.3000",
+      "rate2019female": "2.9000",
+      "pop2021": "20855.7350"
+    },
+    {
+      "country": "Afghanistan",
+      "rate2019both": "4.1000",
+      "rate2019male": "4.6000",
+      "rate2019female": "3.6000",
+      "pop2021": "39835.4280"
+    },
+    {
+      "country": "South Sudan",
+      "rate2019both": "3.9000",
+      "rate2019male": "5.7000",
+      "rate2019female": 2,
+      "pop2021": "11381.3780"
+    },
+    {
+      "country": "Colombia",
+      "rate2019both": "3.9000",
+      "rate2019male": "6.1000",
+      "rate2019female": "1.8000",
+      "pop2021": "51265.8440"
+    },
+    {
+      "country": "Tonga",
+      "rate2019both": "3.8000",
+      "rate2019male": 5,
+      "rate2019female": "2.6000",
+      "pop2021": "106.7600"
+    },
+    {
+      "country": "Sudan",
+      "rate2019both": "3.8000",
+      "rate2019male": "4.9000",
+      "rate2019female": "2.8000",
+      "pop2021": "44909.3530"
+    },
+    {
+      "country": "Timor-Leste",
+      "rate2019both": "3.7000",
+      "rate2019male": "5.3000",
+      "rate2019female": 2,
+      "pop2021": "1343.8730"
+    },
+    {
+      "country": "Bangladesh",
+      "rate2019both": "3.7000",
+      "rate2019male": "5.7000",
+      "rate2019female": "1.7000",
+      "pop2021": "166303.4980"
+    },
+    {
+      "country": "Cyprus",
+      "rate2019both": "3.6000",
+      "rate2019male": 6,
+      "rate2019female": "1.3000",
+      "pop2021": "1215.5840"
+    },
+    {
+      "country": "Iraq",
+      "rate2019both": "3.6000",
+      "rate2019male": "5.2000",
+      "rate2019female": 2,
+      "pop2021": "41179.3500"
+    },
+    {
+      "country": "Bahamas",
+      "rate2019both": "3.5000",
+      "rate2019male": "5.9000",
+      "rate2019female": "1.3000",
+      "pop2021": "396.9130"
+    },
+    {
+      "country": "Nigeria",
+      "rate2019both": "3.5000",
+      "rate2019male": 5,
+      "rate2019female": "1.9000",
+      "pop2021": "211400.7080"
+    },
+    {
+      "country": "Armenia",
+      "rate2019both": "3.3000",
+      "rate2019male": "5.6000",
+      "rate2019female": "1.3000",
+      "pop2021": "2968.1270"
+    },
+    {
+      "country": "Tunisia",
+      "rate2019both": "3.3000",
+      "rate2019male": "4.7000",
+      "rate2019female": "1.9000",
+      "pop2021": "11935.7660"
+    },
+    {
+      "country": "Mauritania",
+      "rate2019both": "3.1000",
+      "rate2019male": 4,
+      "rate2019female": "2.2000",
+      "pop2021": "4775.1190"
+    },
+    {
+      "country": "Papua New Guinea",
+      "rate2019both": 3,
+      "rate2019male": "4.3000",
+      "rate2019female": "1.6000",
+      "pop2021": "9119.0100"
+    },
+    {
+      "country": "Egypt",
+      "rate2019both": 3,
+      "rate2019male": 4,
+      "rate2019female": 2,
+      "pop2021": "104258.3270"
+    },
+    {
+      "country": "Kuwait",
+      "rate2019both": "2.9000",
+      "rate2019male": "4.3000",
+      "rate2019female": "0.7000",
+      "pop2021": "4328.5500"
+    },
+    {
+      "country": "Panama",
+      "rate2019both": "2.9000",
+      "rate2019male": "4.7000",
+      "rate2019female": 1,
+      "pop2021": "4381.5790"
+    },
+    {
+      "country": "Myanmar",
+      "rate2019both": "2.9000",
+      "rate2019male": "4.9000",
+      "rate2019female": "1.1000",
+      "pop2021": "54806.0120"
+    },
+    {
+      "country": "Lebanon",
+      "rate2019both": "2.8000",
+      "rate2019male": "3.8000",
+      "rate2019female": "1.7000",
+      "pop2021": "6769.1460"
+    },
+    {
+      "country": "Peru",
+      "rate2019both": "2.8000",
+      "rate2019male": "4.2000",
+      "rate2019female": "1.4000",
+      "pop2021": "33359.4180"
+    },
+    {
+      "country": "Brunei",
+      "rate2019both": "2.7000",
+      "rate2019male": "4.4000",
+      "rate2019female": "0.8000",
+      "pop2021": "441.5320"
+    },
+    {
+      "country": "Maldives",
+      "rate2019both": "2.7000",
+      "rate2019male": "3.9000",
+      "rate2019female": "0.8000",
+      "pop2021": "543.6170"
+    },
+    {
+      "country": "Algeria",
+      "rate2019both": "2.5000",
+      "rate2019male": "3.1000",
+      "rate2019female": "1.8000",
+      "pop2021": "44616.6240"
+    },
+    {
+      "country": "Jamaica",
+      "rate2019both": "2.4000",
+      "rate2019male": "3.7000",
+      "rate2019female": "1.1000",
+      "pop2021": "2973.4630"
+    },
+    {
+      "country": "Turkey",
+      "rate2019both": "2.4000",
+      "rate2019male": "3.6000",
+      "rate2019female": "1.2000",
+      "pop2021": "85042.7380"
+    },
+    {
+      "country": "Indonesia",
+      "rate2019both": "2.4000",
+      "rate2019male": "3.7000",
+      "rate2019female": "1.1000",
+      "pop2021": "276361.7830"
+    },
+    {
+      "country": "Philippines",
+      "rate2019both": "2.2000",
+      "rate2019male": "3.1000",
+      "rate2019female": "1.2000",
+      "pop2021": "111046.9130"
+    },
+    {
+      "country": "Honduras",
+      "rate2019both": "2.1000",
+      "rate2019male": "3.3000",
+      "rate2019female": "0.8000",
+      "pop2021": "10062.9910"
+    },
+    {
+      "country": "Venezuela",
+      "rate2019both": "2.1000",
+      "rate2019male": "3.5000",
+      "rate2019female": "0.7000",
+      "pop2021": "28704.9540"
+    },
+    {
+      "country": "Jordan",
+      "rate2019both": "1.6000",
+      "rate2019male": "2.5000",
+      "rate2019female": "0.7000",
+      "pop2021": "10269.0210"
+    },
+    {
+      "country": "Sao Tome and Principe",
+      "rate2019both": "1.5000",
+      "rate2019male": "2.2000",
+      "rate2019female": "0.8000",
+      "pop2021": "223.3680"
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
+      "rate2019both": 1,
+      "rate2019male": "1.3000",
+      "rate2019female": "0.6000",
+      "pop2021": "111.2630"
+    },
+    {
+      "country": "Grenada",
+      "rate2019both": "0.7000",
+      "rate2019male": "0.6000",
+      "rate2019female": "0.7000",
+      "pop2021": "113.0210"
+    },
+    {
+      "country": "Barbados",
+      "rate2019both": "0.6000",
+      "rate2019male": "0.9000",
+      "rate2019female": "0.3000",
+      "pop2021": "287.7110"
+    },
+    {
+      "country": "Antigua and Barbuda",
+      "rate2019both": "0.4000",
+      "rate2019male": 0,
+      "rate2019female": "0.8000",
+      "pop2021": "98.7310"
+    }
+  ]
+}
