@@ -7,9 +7,7 @@ console.log(words);
 var express = require('express');
 var cors = require('cors');
 var app = express();
-var port = process.env.PORT || 8000;
-app.listen(port, () => {console.log(`Starting server at ${port}`);
-});
+var server = app.listen(8000, listening);
 
 function listening(){
     console.log("instening. . .");
