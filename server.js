@@ -1,5 +1,5 @@
 var fs = require('fs');
-var data = fs.readFileSync('data2.json');
+var data = fs.readFileSync('words.json');
 var words = JSON.parse(data);
 
 console.log(words);
@@ -35,7 +35,7 @@ function addWord(request, response){
     } else {
         words[word] = score;
         var data = JSON.stringify(words, null, 2);
-        fs.writeFile('data2.json',data,finished);
+        fs.writeFile('words.json',data,finished);
         function finished(err){
         console.log('all set.');
         var reply = {
