@@ -2,6 +2,7 @@ var fs = require('fs');
 var data = fs.readFileSync('word2.json');
 var words = JSON.parse(data);
 
+
 console.log(words);
 
 var express = require('express');
