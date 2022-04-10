@@ -53,7 +53,7 @@ function addWord(request, response){
 app.get('/all', sendAll);
 
 function sendAll(request, response){
-    response.send(words);
+    response.send({emotion:words});
 }
 
 app.get('/search/:word/', searchWord);
