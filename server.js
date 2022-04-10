@@ -34,7 +34,7 @@ function addWord(request, response){
     response.send(reply);
     } else {
         words[word] = score;
-        var data = JSON.stringify(words, null, 2);
+        var data = JSON.stringify({emotion:words}, null, 2);
         fs.writeFile('word2.json',data,finished);
         function finished(err){
         console.log('all set.');
