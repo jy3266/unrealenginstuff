@@ -34,8 +34,8 @@ function addWord(request, response){
     }
     response.send(reply);
     } else {
-        words[word] = score;
-        var data = JSON.stringify({emotion:words}, null, 2);
+        words = {word,score};
+        var data = JSON.stringify({ThankYouForYourLove:words}, null, 2);
         fs.writeFile('words.json',data,finished);
 //         console.log(
         function finished(err){
@@ -53,7 +53,7 @@ function addWord(request, response){
 app.get('/all', sendAll);
 
 function sendAll(request, response){
-    response.send({emotion:words});
+   response.send({ThankYouForYourLove:[words]});
 }
 
 app.get('/search/:word/', searchWord);
