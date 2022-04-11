@@ -33,12 +33,15 @@ function addWord(request, response){
     }
     response.send(reply);
     } else {
-//         words = {word,score};
+        // words = {word,score};
         words[score] = {word,score};
-//         var data = JSON.stringify({ThankYouForYourLove:words}, null, 2);
+        // 위를 아래와 같이 바꾸었을때, 나열과 함께 저장이 되기 시작함, 정확한 이유에 대해서 좀더 알아봐야 할것 같음!
+        
+        // var data = JSON.stringify({ThankYouForYourLove:words}, null, 2);
         var data = JSON.stringify({ThankYouForYourLove:[words]}, null, 2);
+        
         fs.writeFile('words.json',data,finished);
-//         console.log(
+
         function finished(err){
         console.log('all set.');
         var reply = {
