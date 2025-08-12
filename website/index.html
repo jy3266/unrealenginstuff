@@ -1,305 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Share Your Love — Reactive Colors</title>
+  <head>
+    <meta charset="utf-8" />
 
-  <!-- p5.js (기능 유지) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <!-- p5.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
 
-  <style>
-    :root{
-      /* 동적으로 바뀔 색 변수 */
-      --tone1: 210 80% 62%;
-      --tone2: 260 70% 60%;
-      --glow: 210 85% 55%;
-      --ink:#0c1220;
-      --card:#ffffff;
-      --line:rgba(12,18,32,.08);
-    }
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; margin:0; }
-    body{
-      font-family: Inter, "Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      color:#e8eef7;
-      /* 주변 색상이 입력에 따라 부드럽게 바뀜 */
-      background:
-        radial-gradient(1200px 900px at 12% -10%, hsl(var(--tone1) / .25), transparent 60%),
-        radial-gradient(1000px 800px at 110% 110%, hsl(var(--tone2) / .25), transparent 60%),
-        linear-gradient(180deg, hsl(var(--tone1) / .18), hsl(var(--tone2) / .18) 40%, hsl(var(--tone1) / .22));
-      transition: background .45s ease;
-    }
+    <!-- Base styles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Share Your Love</title>
+    <style>
+      :root{
+        /* 이 두 값은 JS에서 실시간 업데이트됩니다 */
+        --bg1: 210 80% 16%; /* h s l (공백 구분) */
+        --bg2: 210 70% 10%;
+        --accent: 210 90% 65%;
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        height: 100%;
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        color: #eaf2ff;
+        background:
+          radial-gradient(1200px 800px at 20% -10%, hsl(var(--bg1) / 0.65), transparent 60%),
+          radial-gradient(1200px 800px at 120% 110%, hsl(var(--bg2) / 0.9), hsl(var(--bg2)));
+        transition: background 600ms ease;
+      }
+      .wrap {
+        min-height: 100%;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+      .card {
+        width: 100%;
+        max-width: 880px;
+        background: hsl(225 28% 14% / 0.65);
+        backdrop-filter: blur(12px);
+        border: 1px solid hsl(220 20% 30% / 0.35);
+        border-radius: 18px;
+        box-shadow: 0 10px 40px hsl(220 30% 4% / 0.6);
+        overflow: hidden;
+      }
+      header {
+        padding: 20px 22px;
+        background: linear-gradient(90deg, hsl(var(--accent) / 0.15), transparent 60%);
+        border-bottom: 1px solid hsl(220 20% 30% / 0.35);
+      }
+      header h1 {
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        font-size: clamp(18px, 2.4vw, 28px);
+      }
+      .content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 18px;
+      }
+      .prompt {
+        background: hsl(220 25% 16% / 0.55);
+        border: 1px solid hsl(220 20% 28% / 0.35);
+        border-radius: 14px;
+        padding: 16px;
+        line-height: 1.5;
+        font-size: 15px;
+      }
+      .fields {
+        display: grid;
+        gap: 12px;
+      }
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+      label { font-size: 14px; opacity: 0.9; }
+      input[type="text"], input[type="number"]{
+        width: 100%;
+        padding: 12px 12px;
+        border-radius: 12px;
+        border: 1px solid hsl(220 20% 35% / 0.5);
+        background: hsl(220 25% 12% / 0.6);
+        color: #eaf2ff;
+        outline: none;
+      }
+      input::placeholder { color: #b8c4d6; opacity: 0.6; }
+      .actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      button {
+        padding: 12px 16px;
+        border-radius: 12px;
+        border: 1px solid hsl(220 20% 35% / 0.5);
+        background: hsl(var(--accent) / 0.15);
+        color: #eaf2ff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+      }
+      button:hover { transform: translateY(-1px); }
+      button:active { transform: translateY(0px) scale(0.99); }
 
-    /* 상단 헤더 */
-    .header{
-      padding: 40px 16px 16px;
-      display:grid; place-items:center;
-      position:relative; overflow:hidden;
-    }
-    .ring{
-      position:absolute; inset:auto; width:1200px; height:1200px; border-radius:50%;
-      background: conic-gradient(from 180deg, hsl(var(--tone1)), hsl(var(--tone2)), hsl(var(--tone1)));
-      filter: blur(110px) saturate(140%); opacity:.18;
-      animation: spin 22s linear infinite;
-      transition: opacity .45s ease, filter .45s ease, background .45s ease;
-    }
-    @keyframes spin{ to{ transform: rotate(360deg);} }
-    h1{
-      margin:0;
-      font-weight:900;
-      font-size: clamp(22px,3vw,34px);
-      letter-spacing:.2px;
-      background: linear-gradient(90deg, hsl(var(--tone1)), hsl(var(--tone2)));
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-      text-align:center;
-      transition: background .45s ease;
-    }
-    .sub{ margin-top:6px; color:#cfe2ff; font-size:14px; text-align:center; }
+      .canvasWrap {
+        background: linear-gradient(180deg, hsl(220 30% 12% / 0.6), transparent);
+        border: 1px dashed hsl(220 20% 35% / 0.4);
+        border-radius: 14px;
+        padding: 10px;
+      }
 
-    /* 레이아웃 */
-    .wrap{
-      display:grid; grid-template-columns: 1fr 1.2fr; gap:20px;
-      padding:16px; max-width:1100px; margin:0 auto 40px;
-    }
-    @media (max-width: 900px){ .wrap{ grid-template-columns: 1fr; } }
+      footer{
+        padding: 14px 18px 20px;
+        font-size: 12px;
+        opacity: 0.75;
+      }
 
-    /* 좌측 폼 카드 */
-    .card{
-      background: var(--card); color: var(--ink);
-      border:1px solid var(--line); border-radius:18px; padding:22px;
-      box-shadow:
-        0 22px 48px hsl(var(--glow) / .18),
-        0 2px 6px rgba(0,0,0,.12);
-      transition: box-shadow .45s ease;
-    }
-    .qbox{
-      background:#f7f9fc; border:1px solid #e8edf5; border-radius:14px;
-      padding:12px 14px; color:#2a3342; line-height:1.55; font-size:14px;
-    }
-    .qbox strong{ font-weight:800; }
-
-    form{ display:grid; gap:16px; margin-top:14px; }
-    label{ display:flex; align-items:center; gap:8px; font-weight:700; font-size:14px; color:#475569; margin-bottom:6px; }
-    .field{ display:grid; gap:6px; }
-
-    input[type="text"], input[type="number"]{
-      width:100%; padding:14px 14px; border-radius:12px; border:1px solid #e5e9f2;
-      background:#fff; color:#0f172a; outline:none;
-      transition: box-shadow .2s, border-color .2s, transform .05s, background .2s;
-    }
-    input::placeholder{ color:#94a3b8; }
-    input:focus{
-      border-color: hsl(var(--tone2));
-      box-shadow: 0 0 0 4px hsl(var(--tone2) / .22);
-      background:#fbfdff;
-    }
-    .hint{ font-size:12px; color:#6b7280; }
-
-    .actions{ display:flex; justify-content:flex-end; align-items:center; gap:10px; }
-    #submit{
-      appearance:none; border:1px solid #e5e9f2;
-      background: linear-gradient(180deg, hsl(var(--tone1) / .18), hsl(var(--tone2) / .18));
-      color:#0f172a; font-weight:900; padding:12px 18px; border-radius:12px;
-      cursor:pointer; transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
-      position:relative; overflow:hidden;
-    }
-    #submit:hover{ box-shadow:0 10px 24px hsl(var(--glow) / .22); }
-    #submit:active{ transform: translateY(1px); }
-
-    /* 우측 스테이지 */
-    .stage-card{
-      position: relative; border-radius: 18px; border: 1px solid rgba(255,255,255,.06);
-      background:
-        radial-gradient(800px 600px at 10% 20%, hsl(var(--tone1) / .18), transparent 60%),
-        radial-gradient(900px 700px at 90% 80%, hsl(var(--tone2) / .18), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.03));
-      overflow: hidden; transition: background .45s ease, border-color .45s ease;
-    }
-    .stage-top{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.06);
-      color:#d9e6ff; font-size:13px; letter-spacing:.2px;
-      background: linear-gradient(180deg, rgba(255,255,255,.05), transparent);
-    }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:6px 10px; border-radius:999px;
-      background: rgba(255,255,255,.07);
-      border:1px solid rgba(255,255,255,.12); font-weight:700;
-    }
-    .grad{
-      background: linear-gradient(90deg, hsl(var(--tone1)), hsl(var(--tone2)));
-      -webkit-background-clip:text; background-clip:text; color:transparent; transition: background .45s ease;
-    }
-    .stage-body{ position: relative; padding:14px; }
-    .ratio-box{
-      position: relative; width:100%; aspect-ratio: 16 / 9;
-      border-radius:14px; border:1px dashed hsl(var(--tone2) / .35);
-      overflow:hidden; background:#0b0d10; transition:border-color .45s ease;
-    }
-    .ratio-box canvas{
-      position:absolute; inset:0; width:100% !important; height:100% !important;
-      display:block; object-fit:contain;
-    }
-    .stage-foot{
-      padding: 10px 16px 14px; border-top:1px solid rgba(255,255,255,.06);
-      color:#b6c9e6; font-size:12px;
-    }
-
-    /* 버튼 립플 */
-    .ripple{
-      position: absolute; border-radius: 50%;
-      transform: translate(-50%, -50%); pointer-events: none;
-      animation: ripple .6s ease-out forwards;
-      background: hsl(var(--tone2) / .25);
-    }
-    @keyframes ripple{ from{ width:0; height:0; opacity:.6; } to{ width:420px; height:420px; opacity:0; } }
-  </style>
-</head>
-<body>
-  <header class="header">
-    <div class="ring" aria-hidden="true"></div>
-    <h1>&lt;..I hope you could share your love here..&gt;</h1>
-    <div class="sub">Write a kind word and your feeling number — watch the colors around you change.</div>
-  </header>
-
-  <main class="wrap">
-    <!-- LEFT: Form -->
-    <section class="card" role="form" aria-labelledby="form-title">
-      <div id="form-title" class="qbox">
-        <strong>Question</strong><br/>
-        What would you going to say if you know anyone who is going to have a hard time tonight through depression or suicidal thoughts?
-        <br/>(Anyone could be your friend, family member or someone closes to you)
-      </div>
-
-      <form>
-        <div class="field">
-          <label for="word">Hopeful words or sentences</label>
-          <input id="word" type="text" placeholder="e.g., You are not alone. We can get through this." />
-          <div class="hint">짧아도 좋아요. 당신의 언어로 남겨주세요.</div>
-        </div>
-
-        <div class="field">
-          <label for="score">Feeling number (1–50)</label>
-          <input id="score" type="number" inputmode="numeric" min="1" max="50" placeholder="1–50" />
-          <div class="hint">높을수록 더 밝은 톤, 낮을수록 차분한 톤으로 바뀝니다.</div>
-        </div>
-
-        <div class="actions">
-          <button id="submit" type="button">Submit</button>
-        </div>
-      </form>
-    </section>
-
-    <!-- RIGHT: p5 Stage -->
-    <section class="stage-card" aria-label="Visual Stage">
-      <div class="stage-top">
-        <span class="pill">p5 Stage</span>
-        <span class="grad">responsive • 16:9 • adaptive</span>
-      </div>
-      <div class="stage-body">
-        <div id="p5-stage" class="ratio-box">
-          <!-- p5 canvas will be moved here -->
-        </div>
-      </div>
-      <div class="stage-foot">Tip: 캔버스는 컨테이너 비율(16:9)에 맞춰 자동으로 리사이즈됩니다.</div>
-    </section>
-  </main>
-
-  <!-- 기존 스케치 로드 (기능 유지) -->
-  <script src="sketch.js"></script>
-
-  <!-- 컬러 반응 인터랙션 (기능 방해 없음) -->
-  <script>
-    (function(){
-      const word  = document.getElementById('word');
-      const score = document.getElementById('score');
-      const submit= document.getElementById('submit');
-      const stage = document.getElementById('p5-stage');
-      const root  = document.documentElement;
-
-      // 1) p5 canvas를 stage로 이동 + 비율 고정
-      function attachCanvas(){
-        const c = document.querySelector('canvas');
-        if (!c) return false;
-        if (c.parentElement !== stage){
-          stage.appendChild(c);
-          c.style.width = '100%';
-          c.style.height = '100%';
-          c.style.display = 'block';
+      @media (min-width: 880px){
+        .content{
+          grid-template-columns: minmax(280px, 1fr) minmax(360px, 1.3fr);
+          align-items: start;
         }
-        return true;
       }
-      const mo = new MutationObserver(()=> attachCanvas());
-      mo.observe(document.body, { childList:true, subtree:true });
-      attachCanvas();
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="card">
+        <header>
+          <h1>&lt;..I hope you could share your love here..&gt;</h1>
+        </header>
 
-      // 2) 텍스트 기반 아주 가벼운 감정 점수(키워드) → 채도/명도 보정
-      const POS = ["love","hope","together","breathe","okay","safe","strong","thank","괜찮","고마","사랑","희망","함께","안전","괜챃","괜찮아","응원","위로","빛","light"];
-      const NEG = ["alone","tired","sad","hurt","pain","heavy","dark","suicide","die","아파","힘들","외로","어둡","죽","절망","불안","고통","우울","슬픔"];
+        <div class="content">
+          <div class="left">
+            <div class="prompt">
+              <p><strong>Question:</strong> What would you say to someone who may have a hard night with depression or suicidal thoughts?<br/>
+              (Anyone could be your friend, family member, or someone close to you.)</p>
+            </div>
 
-      function lexSentiment(text){
-        if (!text) return 0;
-        const t = text.toLowerCase();
-        let pos=0, neg=0;
-        for (const w of POS) if (t.includes(w)) pos++;
-        for (const w of NEG) if (t.includes(w)) neg++;
-        const score = (pos - neg);
-        if (pos+neg === 0) return 0;
-        // -1 ~ 1로 정규화 (가볍게)
-        return Math.max(-1, Math.min(1, score / (pos+neg)));
-      }
+            <div class="fields">
+              <div class="field">
+                <label for="word">I wish that you can give me some hopeful words or sentences:</label>
+                <input id="word" type="text" placeholder="e.g., You matter. You’re not alone." />
+              </div>
 
-      // 3) 숫자(1~50) → 색상(차분한 블루 → 따뜻한 골드) 맵핑, 텍스트 감정으로 채도/명도 조정
-      function clamp(n,a,b){ return Math.max(a, Math.min(b, n)); }
-      function mapScoreToHue(n){
-        // 1 => 210(블루) ~ 50 => 50(골드)로 선형 보간
-        const t = (n - 1) / 49; // 0..1
-        return lerp(210, 50, t);
-      }
-      function updateColors(){
-        const n = clamp(parseInt(score.value||'1',10)||1, 1, 50);
-        const h = mapScoreToHue(n);
+              <div class="field">
+                <label for="score">What number is in your mind between 1–50 if you express your feelings in numbers?</label>
+                <input id="score" type="number" min="1" max="50" placeholder="1–50" />
+              </div>
 
-        // 텍스트 감정값으로 채도/명도 가중
-        const sOffset = lexSentiment(word.value.trim()); // -1..1
-        // 기본 채도/명도
-        let s1 = 70 + sOffset * 20; // 50~90
-        let l1 = 58 + sOffset * 10; // 48~68
-        let s2 = 65 + sOffset * 18;
-        let l2 = 56 + sOffset * 10;
+              <div class="actions">
+                <button id="submit">Submit</button>
+              </div>
+            </div>
+          </div>
 
-        // 보조 톤은 40도 옆색
-        const h2 = (h + 40) % 360;
+          <div class="right">
+            <div class="canvasWrap">
+              <!-- p5.js canvas will mount here -->
+              <div id="p5-holder"></div>
+            </div>
+          </div>
+        </div>
 
-        root.style.setProperty('--tone1', `${Math.round(h)} ${Math.round(s1)}% ${Math.round(l1)}%`);
-        root.style.setProperty('--tone2', `${Math.round(h2)} ${Math.round(s2)}% ${Math.round(l2)}%`);
-        // 버튼/그림자용 글로우 톤
-        const glowS = clamp(80 + sOffset*10, 50, 95);
-        const glowL = clamp(55 + sOffset*8, 40, 70);
-        root.style.setProperty('--glow', `${Math.round(h)} ${glowS}% ${glowL}%`);
-      }
-      function lerp(a,b,t){ return a + (b-a)*t; }
+        <footer>
+          Colors softly respond to what people share — higher numbers add energy; hopeful words add warmth.
+        </footer>
+      </div>
+    </div>
 
-      // 입력 이벤트 바인딩
-      word.addEventListener('input', updateColors);
-      score.addEventListener('input', updateColors);
-
-      // 초기 적용
-      updateColors();
-
-      // 4) 버튼 립플(기능 방해 X)
-      submit.addEventListener('click', (e)=>{
-        const rect = submit.getBoundingClientRect();
-        const x = e.clientX - rect.left, y = e.clientY - rect.top;
-        const r = document.createElement('span');
-        r.className = 'ripple'; r.style.left = x+'px'; r.style.top = y+'px';
-        submit.appendChild(r); setTimeout(()=> r.remove(), 650);
-        // preventDefault 사용하지 않음: 기존 sketch.js 동작 유지
-      });
-    })();
-  </script>
-</body>
+    <!-- Your p5 sketch -->
+    <script src="sketch.js"></script>
+  </body>
 </html>
+sketch.js
+javascript
+Copy
+Edit
+/* Responsive, mood-reactive canvas + background/accents synced to inputs */
+
+let cnv;
+let particles = [];
+let targetHue = 210;       // hue based on score
+let targetWarm = 0.0;      // warmth from hopeful words
+let currentHue = 210;
+let currentWarm = 0.0;
+let lastResize = 0;
+
+// Create a sized canvas that stays "적당한 크기" (card 안에서 반응형)
+function createOrResizeCanvas(){
+  const holder = document.getElementById('p5-holder');
+  const bounds = holder.getBoundingClientRect();
+
+  // 적당한 비율/최대치
+  const w = Math.min(Math.max(bounds.width - 20, 320), 760);
+  const h = Math.min(Math.max(w * 0.48, 200), 380);
+
+  if (!cnv){
+    cnv = createCanvas(w, h);
+    cnv.parent(holder);
+  } else {
+    resizeCanvas(w, h, true);
+  }
+}
+
+function setup(){
+  createOrResizeCanvas();
+  noStroke();
+  initParticles();
+
+  // 입력 이벤트로 분위기 미리 반응
+  const word = document.getElementById('word');
+  const score = document.getElementById('score');
+  const submit = document.getElementById('submit');
+
+  word.addEventListener('input', onLiveWord);
+  score.addEventListener('input', onLiveScore);
+  submit.addEventListener('click', onSubmit);
+
+  // 초기 스타일 동기화
+  applyTheme();
+}
+
+function windowResized(){
+  // 과도한 resize 호출 방지
+  const now = millis();
+  if (now - lastResize > 50){
+    createOrResizeCanvas();
+    lastResize = now;
+  }
+}
+
+function draw(){
+  // 부드러운 보간으로 색 이동
+  currentHue = lerp(currentHue, targetHue, 0.02);
+  currentWarm = lerp(currentWarm, targetWarm, 0.02);
+
+  drawGradientBackground(currentHue, currentWarm);
+  updateParticles(currentHue, currentWarm);
+
+  // body & accent 색상도 프레임마다 조금씩 동기화
+  applyTheme();
+}
+
+/* ---------- Mood Logic ---------- */
+// 점수(1~50) -> 색조(hue) 매핑: 낮음=차분(200~220), 높음=활기(310~340)
+function hueFromScore(n){
+  // 맵핑 범위 약간 넓힘
+  return map(n, 1, 50, 210, 330, true);
+}
+
+// 단어에서 warmth 추출: 길이 + 'love, hope, safe...' 포함 시 가중치
+function warmthFromWords(text){
+  const t = (text || "").toLowerCase();
+  const base = constrain(t.length / 80, 0, 1); // 길이가 길수록 약간 따뜻하게
+  const positives = ['love','lovely','hope','safe','breathe','calm','together','here','hold','light','kind','kindness','warm','trust','peace'];
+  let bonus = 0;
+  positives.forEach(p => {
+    if (t.includes(p)) bonus += 0.12;
+  });
+  return constrain(base + bonus, 0, 1);
+}
+
+/* ---------- UI Handlers ---------- */
+function onLiveWord(e){
+  targetWarm = warmthFromWords(e.target.value);
+}
+
+function onLiveScore(e){
+  const n = parseInt(e.target.value, 10);
+  if (!isNaN(n)){
+    targetHue = hueFromScore(n);
+  }
+}
+
+function onSubmit(){
+  // 제출 시 약간의 파티클 부스트(작은 축제 느낌)
+  burstParticles(14 + floor(10 * currentWarm));
+}
+
+/* ---------- Theme & Drawing ---------- */
+function applyTheme(){
+  // warm이 높을수록 명도/채도 상승, hue는 score 기반
+  const h1 = currentHue;
+  const h2 = (currentHue + 30) % 360;
+
+  const satBase = 70 + currentWarm * 20;
+  const light1 = 14 + currentWarm * 8;
+  const light2 = 10 + currentWarm * 10;
+
+  const accentLight = 55 + currentWarm * 20;
+
+  document.documentElement.style.setProperty('--bg1', `${h1} ${satBase}% ${light1}%`);
+  document.documentElement.style.setProperty('--bg2', `${h2} ${satBase - 10}% ${light2}%`);
+  document.documentElement.style.setProperty('--accent', `${h1} ${80 + currentWarm * 12}% ${accentLight}%`);
+}
+
+function drawGradientBackground(h, warm){
+  // 캔버스 내에서도 은은한 그라데이션
+  push();
+  const cTop = color(h, 70 + warm*20, 16 + warm*10);
+  const cBot = color((h+40)%360, 60 + warm*15, 8 + warm*12);
+  for (let y=0; y<height; y++){
+    const t = y / height;
+    const c = lerpColor(cTop, cBot, t);
+    stroke(c);
+    line(0, y, width, y);
+  }
+  pop();
+}
+
+/* ---------- Particles ---------- */
+function initParticles(){
+  particles = [];
+  for (let i=0;i<64;i++){
+    particles.push(makeParticle());
+  }
+}
+
+function burstParticles(n){
+  for (let i=0;i<n;i++){
+    particles.push(makeParticle(true));
+  }
+  // 제한
+  if (particles.length > 140){
+    particles.splice(0, particles.length - 140);
+  }
+}
+
+function makeParticle(burst=false){
+  const angle = random(TWO_PI);
+  const radius = burst ? random(10, 40) : random(60, min(width, height)/2);
+  const cx = width/2 + cos(angle) * radius;
+  const cy = height/2 + sin(angle) * radius;
+  return {
+    x: cx,
+    y: cy,
+    vx: random(-0.6, 0.6),
+    vy: random(-0.6, 0.6),
+    life: burst ? random(70, 140) : random(120, 220),
+    size: random(2, 5),
+  };
+}
+
+function updateParticles(h, warm){
+  const amp = 0.25 + warm * 0.7; // warm이 높을수록 요동
+  const c = color(h, 80, 60 + warm*20, 0.65);
+
+  particles.forEach(p => {
+    p.vx += (noise(p.x*0.003, p.y*0.003, frameCount*0.002)-0.5) * 0.06 * (1+warm);
+    p.vy += (noise(p.y*0.003, p.x*0.003, frameCount*0.002)-0.5) * 0.06 * (1+warm);
+    p.x += p.vx * amp;
+    p.y += p.vy * amp;
+    p.life -= 0.8;
+
+    // 화면 가장자리에서 부드럽게 감싸기
+    if (p.x < -10) p.x = width + 10;
+    if (p.x > width + 10) p.x = -10;
+    if (p.y < -10) p.y = height + 10;
+    if (p.y > height + 10) p.y = -10;
+
+    // 그리기
+    push();
+    noStroke();
+    fill(c);
+    circle(p.x, p.y, p.size + warm*3);
+    pop();
+  });
+
+  // 수명 지난 파티클 제거
+  particles = particles.filter(p => p.life > 0);
+}
+
+/* ---------- Color Mode ---------- */
+function preload(){
+  // p5의 HSL 사용
+  colorMode(HSL, 360, 100, 100, 1);
+}
