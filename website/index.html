@@ -1,26 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Share Your Love</title>
+
+    <!-- Google Fonts (optional) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- p5.js (기존 기능 유지) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
 
+    <style>
+      :root{
+        --bg1: #fff7ed;     /* warm peach */
+        --bg2: #e3f2fd;     /* soft sky */
+        --card: #ffffff;
+        --ink: #263238;     /* blue-grey 900 */
+        --muted: #607d8b;   /* blue-grey 600 */
+        --accent: #4f46e5;  /* indigo-600 */
+        --accent-2:#22c55e; /* green-500 */
+        --accent-3:#fb7185; /* rose-400 */
+        --ring: rgba(79,70,229,.2);
+        --line: rgba(2,6,23,.08);
+      }
+
+      * { box-sizing: border-box; }
+      html, body { height: 100%; margin: 0; }
+      body{
+        font-family: "Inter","Pretendard",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(1200px 800px at 10% -10%, var(--bg2), transparent 60%),
+          radial-gradient(1000px 900px at 90% 110%, var(--bg1), transparent 60%),
+          linear-gradient(180deg, #fff, #f7fbff);
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* 부드럽게 움직이는 파스텔 블롭 */
+      .blob {
+        position: fixed;
+        width: 520px; height: 520px;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: .35;
+        pointer-events: none;
+        mix-blend-mode: multiply;
+        animation: float 14s ease-in-out infinite;
+      }
+      .blob.a { background: #ffd6a5; top: -120px; left: -120px; animation-delay: 0s; }
+      .blob.b { background: #b7e4c7; bottom: -160px; right: -140px; animation-delay: 2s; }
+      .blob.c { background: #c7d2fe; top: 30%; left: 60%; animation-delay: 4s; }
+
+      @keyframes float {
+        0%,100% { transform: translate(0,0) scale(1); }
+        50%     { transform: translate(10px, -16px) scale(1.05); }
+      }
+
+      main{
+        display: grid;
+        place-items: center;
+        min-height: 100dvh;
+        padding: 32px;
+      }
+
+      .card{
+        width: 100%;
+        max-width: 860px;
+        background: var(--card);
+        border-radius: 24px;
+        border: 1px solid var(--line);
+        box-shadow:
+          0 10px 25px rgba(15,23,42,.06),
+          0 2px 6px rgba(2,6,23,.04);
+        padding: 28px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      header{
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      header h1{
+        margin: 0 0 6px 0;
+        font-weight: 800;
+        font-size: clamp(22px, 3.2vw, 36px);
+        letter-spacing: .2px;
+        background: linear-gradient(90deg, var(--accent), #06b6d4);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      header p{
+        margin: 0;
+        color: var(--muted);
+        font-size: clamp(14px, 2.2vw, 16px);
+      }
+
+      .divider{
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--line), transparent);
+        margin: 18px 0;
+      }
+
+      .question{
+        background: #f8fafc;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 14px 16px;
+        line-height: 1.6;
+        font-size: 15px;
+      }
+
+      form{
+        display: grid;
+        gap: 16px;
+        margin-top: 14px;
+      }
+
+      label{
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--muted);
+        margin-bottom: 6px;
+        display: inline-block;
+      }
+
+      .field{
+        display: grid;
+        gap: 6px;
+      }
+
+      input[type="text"], input[type="number"]{
+        width: 100%;
+        padding: 14px 14px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--ink);
+        outline: none;
+        transition: box-shadow .2s, border-color .2s, transform .05s, background .2s;
+      }
+      input::placeholder{ color: #94a3b8; }
+      input:focus{
+        border-color: var(--accent);
+        box-shadow: 0 0 0 4px var(--ring);
+        background: #fbfdff;
+      }
+
+      .hint{
+        font-size: 12px;
+        color: #64748b;
+      }
+
+      .preview{
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr;
+        padding: 12px;
+        border-radius: 14px;
+        background: #f9fafb;
+        border: 1px dashed var(--line);
+      }
+      .preview-row{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-height: 28px;
+      }
+      .badge{
+        font-size: 12px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: #eef2ff;
+        color: #4338ca;
+        border: 1px solid #e0e7ff;
+        font-weight: 700;
+        letter-spacing: .2px;
+        white-space: nowrap;
+      }
+      .text-muted{ color: #64748b; }
+
+      .moodbar{
+        height: 10px;
+        border-radius: 999px;
+        background: #e2e8f0;
+        overflow: hidden;
+        position: relative;
+      }
+      .moodbar > span{
+        position: absolute; left: 0; top: 0; bottom: 0; width: 0%;
+        background: linear-gradient(90deg, #60a5fa, #22c55e, #fb7185);
+        transition: width .3s ease;
+      }
+
+      .count{
+        font-size: 12px;
+        color: #64748b;
+        margin-left: 6px;
+      }
+
+      .actions{
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 6px;
+      }
+
+      button#submit{
+        appearance: none;
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, #e0e7ff, #c7d2fe);
+        color: #1f2937;
+        font-weight: 800;
+        padding: 12px 18px;
+        border-radius: 14px;
+        cursor: pointer;
+        transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      button#submit:hover{ box-shadow: 0 10px 22px rgba(79,70,229,.18); }
+      button#submit:active{ transform: translateY(1px); }
+      /* 버튼 립플 */
+      .ripple{
+        position: absolute;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        animation: ripple .6s ease-out forwards;
+        background: rgba(79,70,229,.25);
+      }
+      @keyframes ripple{
+        from{ width: 0; height: 0; opacity: .6; }
+        to{ width: 420px; height: 420px; opacity: 0; }
+      }
+
+      /* confetti 컨테이너 */
+      .confetti {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .confetti i{
+        position: absolute;
+        width: 8px; height: 14px;
+        opacity: 0;
+        transform: translateY(-20px) rotate(0deg);
+        animation: drop 1200ms ease-out forwards;
+      }
+      @keyframes drop{
+        0% { opacity: 0; transform: translateY(-20px) rotate(0deg); }
+        10%{ opacity: 1; }
+        100%{ opacity: 1; transform: translateY(110vh) rotate(540deg); }
+      }
+
+      .canvas-zone{
+        margin-top: 16px;
+        border-radius: 16px;
+        min-height: 120px;
+        border: 1px dashed var(--line);
+        display: grid;
+        place-items: center;
+        color: #94a3b8;
+        font-size: 13px;
+      }
+
+      @media (max-width: 520px){
+        .card{ padding: 22px; }
+      }
+    </style>
   </head>
   <body>
-    <h1 style="background-color:rgb(144, 199, 254);" align="center"> <..I hope you could share your love here..> </I></h1>
-    <p style="background-color:rgb(144, 243, 254);" align="center"> 
-    Question : What would you going to say if you know anyone who is going to have a hard time tonight through depression or suicidal thoughts?
-    <br/>
-    (Anyone could be your friend, family member or someone closes to you)
-    </p>  
-    <p style="background-color:rgb(255, 147, 128)" align="center">
+    <!-- 부드러운 파스텔 배경 블롭 -->
+    <div class="blob a"></div>
+    <div class="blob b"></div>
+    <div class="blob c"></div>
+
+    <main>
+      <section class="card" role="main" aria-labelledby="title">
+        <header>
+          <h1 id="title">&lt;..I hope you could share your love here..&gt;</h1>
+          <p>밝고 따뜻한 한마디가 오늘을 바꿔요 ☀️</p>
+        </header>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <div class="question" aria-labelledby="q-title">
+          <strong id="q-title">Question</strong><br>
+          What would you going to say if you know anyone who is going to have a hard time tonight through depression or suicidal thoughts?
+          <br/>(Anyone could be your friend, family member or someone closes to you)
+        </div>
+
+        <form>
+          <div class="field">
+            <label for="word">I wish that you can give me some hopeful words or sentences</label>
+            <input id="word" type="text" placeholder="e.g., You are not alone. We can get through this." />
+            <div class="hint">
+              진심이 담긴 짧은 문장도 좋아요.
+              <span class="count" id="wordCount">0 / 160</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="score">What number is in your mind between 1–50 if you express your feelings in numbers?</label>
+            <input id="score" type="number" inputmode="numeric" min="1" max="50" placeholder="1–50" />
+            <div class="hint">지금 마음의 온도를 숫자로 표현해 주세요.</div>
+          </div>
+
+          <!-- 라이브 프리뷰 -->
+          <div class="preview" aria-live="polite">
+            <div class="preview-row">
+              <span class="badge">Preview</span>
+              <span id="previewText" class="text-muted">Your hopeful words will appear here.</span>
+            </div>
+            <div class="preview-row" style="gap:12px; align-items:center;">
+              <span class="badge">Mood</span>
+              <div class="moodbar" style="flex:1;">
+                <span id="moodFill"></span>
+              </div>
+              <span id="moodEmoji" aria-hidden="true">🙂</span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="submit" type="button">Submit</button>
+          </div>
+        </form>
+
+        <div class="canvas-zone">
+          p5 canvas will appear here (optional)
+        </div>
+      </section>
+    </main>
+
+    <!-- 축하 파티클 레이어 -->
+    <div class="confetti" aria-hidden="true" id="confetti"></div>
+
+    <!-- 기존 기능 유지: 당신의 sketch.js를 그대로 사용하세요 -->
     <script src="sketch.js"></script>
-   I wish that you can give me some hopeful words or sentences: <input id = "word">
-   <br/>
-    What number is in your mind between 1-50 If you express your feelings in numbers?: <input id="score">
-    <br/>
-    <button id="submit">submit</button>
-</p>
+
+    <!-- 가벼운 인터렉션 스크립트 (기존 기능을 방해하지 않음) -->
+    <script>
+      (function(){
+        const word = document.getElementById('word');
+        const score = document.getElementById('score');
+        const submit = document.getElementById('submit');
+
+        const wordCount = document.getElementById('wordCount');
+        const previewText = document.getElementById('previewText');
+        const moodFill = document.getElementById('moodFill');
+        const moodEmoji = document.getElementById('moodEmoji');
+
+        // 글자수 카운트 + 미리보기
+        const maxLen = 160;
+        function updateWord(){
+          const val = word.value.trim();
+          const len = val.length;
+          wordCount.textContent = len + " / " + maxLen;
+          if (len > maxLen) {
+            word.value = val.slice(0, maxLen);
+            wordCount.textContent = maxLen + " / " + maxLen;
+          }
+          previewText.textContent = val || "Your hopeful words will appear here.";
+        }
+
+        // 기분 미터 (1~50) -> 바 너비 + 이모지
+        function updateMood(){
+          const n = Math.max(1, Math.min(50, parseInt(score.value || 0, 10) || 1));
+          const pct = (n / 50) * 100;
+          moodFill.style.width = pct + "%";
+          // 이모지 구간
+          const emo = n < 15 ? "🌧️"
+                    : n < 30 ? "🙂"
+                    : n < 45 ? "🌤️"
+                    : "🌈";
+          moodEmoji.textContent = emo;
+        }
+
+        word.addEventListener('input', updateWord);
+        score.addEventListener('input', updateMood);
+        updateWord(); updateMood();
+
+        // 버튼 립플 효과
+        submit.addEventListener('click', function(e){
+          const rect = submit.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const r = document.createElement('span');
+          r.className = 'ripple';
+          r.style.left = x + 'px';
+          r.style.top = y + 'px';
+          submit.appendChild(r);
+          setTimeout(()=> r.remove(), 650);
+
+          // 축하 파티클 (가볍게)
+          burstConfetti();
+          // 주의: preventDefault 사용하지 않음 -> 기존 sketch.js가 submit 클릭을 잡아도 문제 없음.
+        });
+
+        // 간단한 confetti
+        function burstConfetti(){
+          const wrap = document.getElementById('confetti');
+          const colors = ['#60a5fa','#22c55e','#fb7185','#f59e0b','#a78bfa'];
+          const count = 24;
+          for (let i=0;i<count;i++){
+            const p = document.createElement('i');
+            const size = 8 + Math.random()*8;
+            p.style.width = size + 'px';
+            p.style.height = (size*1.6) + 'px';
+            p.style.left = (10 + Math.random()*80) + 'vw';
+            p.style.top = (-10 - Math.random()*20) + 'vh';
+            p.style.background = colors[(Math.random()*colors.length)|0];
+            p.style.boxShadow = '0 0 0 1px rgba(255,255,255,.5) inset';
+            p.style.animationDelay = (Math.random()*120) + 'ms';
+            wrap.appendChild(p);
+            setTimeout(()=> p.remove(), 1400);
+          }
+        }
+      })();
+    </script>
   </body>
 </html>
