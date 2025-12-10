@@ -3,89 +3,24 @@
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
-    <style>
-      /* 전체 페이지 배경색을 부드러운 미색으로 설정 */
-      body {
-        background-color: #F8F4E6; /* Creamy White */
-        font-family: 'Malgun Gothic', 'Dotum', sans-serif; /* 가독성 좋고 부드러운 폰트 */
-        color: #333333; /* 짙은 회색으로 편안하게 */
-      }
-      
-      /* 제목 스타일 - 따뜻한 베이지 계열 */
-      h1 {
-        background-color: #E0B98B; /* Soft Beige */
-        color: #6D4C3D; /* Deep Brown Text */
-        text-align: center;
-        padding: 15px; /* 패딩 추가 */
-        border-radius: 10px 10px 0 0; /* 모서리 둥글게 */
-        margin-bottom: 0;
-      }
-
-      /* 질문 영역 스타일 - 부드러운 파스텔 톤 */
-      .question-box {
-        background-color: #C0DEDD; /* Soft Mint/Cyan */
-        text-align: center;
-        padding: 20px;
-        margin-top: 0;
-        border-radius: 0 0 10px 10px; /* 아래 모서리 둥글게 */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 은은한 그림자 */
-      }
-      
-      /* 입력 및 버튼 영역 스타일 - 따뜻한 살구/코랄 계열 */
-      .input-area {
-        background-color: #F7D1BA; /* Soft Coral/Apricot */
-        text-align: center;
-        padding: 30px;
-        margin-top: 20px;
-        border-radius: 10px;
-        line-height: 2.5; /* 줄 간격 넓혀서 편안하게 */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      }
-
-      /* 입력 필드 스타일 */
-      input[type="text"], input[type="number"], #word, #score {
-        border: 2px solid #E0B98B; /* 제목과 같은 부드러운 베이지색 테두리 */
-        padding: 8px;
-        border-radius: 5px;
-        margin-left: 10px;
-        font-size: 16px;
-        width: 150px; /* 너비 조정 */
-      }
-      
-      /* 버튼 스타일 */
-      #submit {
-        background-color: #A36A4E; /* Warm Earth Brown */
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: background-color 0.3s; /* 마우스 오버 시 변화를 부드럽게 */
-        margin-top: 15px;
-      }
-      
-      #submit:hover {
-        background-color: #8C553C; /* Darker Brown on hover */
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
+
   </head>
   <body>
-    <h1>기후층</h1>
-    <p class="question-box"> 
-      질문: 당신은 비가 올 때 어떤 생각을 하시나요?
-      <br/>
-      (그저 스쳐 지나간 존재들 또는 순간들을 다시금 생각해보세요)
-    </p>
-    
-    <p class="input-area">
-      <script src="sketch.js"></script>
-      당신의 그 기억들을 잠시나마 공유해주세요 (30자 이내): <input id="word" type="text" maxlength="30">
-      <br/>
-      1-30 중 당신이 좋아하는 숫자는 무엇인가요?: <input id="score" type="number" min="1" max="30">
-      <br/>
-      <button id="submit">추억 공유하기</button>
-    </p>
+    <h1 style="background-color:rgb(144, 199, 254);" align="center"> <기후층> </I></h1>
+    <p style="background-color:rgb(144, 243, 254);" align="center"> 
+    질문 : 당신은 비가 올때 어떤 생각을 하시나요?
+    <br/>
+    (그저 스쳐지나간 존재들 또는 순간들을 다시금 생각해보세요)
+    </p>  
+    <p style="background-color:rgb(255, 147, 128)" align="center">
+    <script src="sketch.js"></script>
+   당신의 그 기억들을 잠시나마 공유해주세요 (30자 이내) : <input id = "word">
+   <br/>
+    1-30 중 당신이 좋아하는 숫자는 무엇인가요? : <input id="score">
+    <br/>
+    <button id="submit">submit</button>
+</p>
   </body>
 </html>
