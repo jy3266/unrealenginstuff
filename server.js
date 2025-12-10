@@ -57,7 +57,7 @@ function addWord(request, response){
 app.get('/all', sendAll);
 
 function sendAll(request, response){
-   response.send({ThankYouForYourLove:[words]});
+   response.send({이야기해줘서고마워:[words]});
 }
 
 app.get('/search/:word/', searchWord);
