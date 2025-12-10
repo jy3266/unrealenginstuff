@@ -38,7 +38,7 @@ function addWord(request, response){
         // 위를 아래와 같이 바꾸었을때, 나열과 함께 저장이 되기 시작함, 정확한 이유에 대해서 좀더 알아봐야 할것 같음!
         
         // var data = JSON.stringify({ThankYouForYourLove:words}, null, 2);
-        var data = JSON.stringify({ThankYouForYourLove:[words]}, null, 2);
+        var data = JSON.stringify({이야기해줘서고마워:[words]}, null, 2);
         
         fs.writeFile('words.json',data,finished);
 
